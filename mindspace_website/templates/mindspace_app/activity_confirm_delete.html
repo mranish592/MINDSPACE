@@ -1,0 +1,10 @@
+{% extends "mindspace_app/base.html" %}
+{% block body_block %}
+  <h1>Delete {{ activity.heading }}?</h1>
+  <form class=""  method="post">
+    {% csrf_token %}
+    <input type="submit" name="" value="delete">
+    <a href="{% url 'mindspace_app:index' %}">Cancel</a>
+
+  </form>
+{% endblock %}

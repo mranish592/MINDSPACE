@@ -1,14 +1,40 @@
 <!DOCTYPE html>
-{% load static %}
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <!-- CSS CUSTOM -->
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}"/>
-    <title></title>
-  </head>
-  <body>
+{% extends "mindspace_app/base.html" %}
+{% block body_block %}
     hello world
     <h1>css is linked if this is red</h1>
-  </body>
-</html>
+
+    <h2>New activities</h2>
+    <ul>
+    {% for activity in activities %}
+      {% if activity.status == -1 %}
+      <h1>{{ activity.heading }}, status: {{ activity.status }}</h1>
+      <a href="{% url 'mindspace_app:update' pk=activity.pk %}">update</a>
+      <a href="{% url 'mindspace_app:delete' pk=activity.pk %}">delete</a>
+
+      {% endif %}
+    {% endfor %}
+    </ul>
+
+    <h2>Current activities</h2>
+    <ul>
+    {% for activity in activities %}
+      {% if activity.status == 0 %}
+      <h1>{{ activity.heading }}, status: {{ activity.status }}</h1>
+      <a href="{% url 'mindspace_app:update' pk=activity.pk %}">update</a>
+      <a href="{% url 'mindspace_app:delete' pk=activity.pk %}">delete</a>
+      {% endif %}
+    {% endfor %}
+    </ul>
+
+    <h2>Completed activities</h2>
+    <ul>
+    {% for activity in activities %}
+      {% if activity.status == 1 %}
+      <h1>{{ activity.heading }}, status: {{ activity.status }}</h1>
+      <a href="{% url 'mindspace_app:update' pk=activity.pk %}">update</a>
+      <a href="{% url 'mindspace_app:delete' pk=activity.pk %}">delete</a>
+      {% endif %}
+    {% endfor %}
+    </ul>
+{% endblock %}
