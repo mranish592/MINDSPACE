@@ -5,3 +5,5 @@ from django.shortcuts import render
 def index(request):
     context={}
     return render(request, 'mindspace_app/index.html',context)
+
+    
