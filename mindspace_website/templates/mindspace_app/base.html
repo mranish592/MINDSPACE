@@ -8,6 +8,12 @@
     <title></title>
   </head>
   <body>
+    <div class="navbar">
+      <a href="{% url 'mindspace_app:index' %}"> MindSpace</a>
+      <a href="{% url 'mindspace_app:index' %}">Dashboard</a>
+      <a href="{% url 'mindspace_app:create' %}">New Project</a>
+    </div>
+
     {% block body_block %}
 
     {% endblock %}

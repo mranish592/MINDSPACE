@@ -1,9 +1,30 @@
+:root{
+  --dark-grey: #3C3C3C;
+  --light-grey: #8D8A8A;
+  --green: #00D090;
+  --pink: #00D090;
+}
+img {
+  max-width:300px;
+  height:auto;
+  padding: 10px;
+}
+
 body{
   font-family: arial;
-  background-color: #3C3C3C;
+  background-color: var(--dark-grey);
   color: white;
+  margin: 0;
+
 }
 
 a{
   color: white;
+}
+
+.navbar{
+  background: var(--light-grey);
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+  height: 100px;
 }
