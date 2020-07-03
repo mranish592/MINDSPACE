@@ -16,6 +16,11 @@
     <input id = "status" type="number" name="" value="">
 -->
     <input type="submit" name="" value="submit">
+    {% if form.instance.pk %}
+      <a href="{% url 'mindspace_app:delete' pk=activity.pk %}">delete</a>
+    {% endif %}
 
   </form>
+
+
 {% endblock %}

@@ -1,40 +1,42 @@
 <!DOCTYPE html>
 {% extends "mindspace_app/base.html" %}
 {% block body_block %}
-    hello world
-    <h1>css is linked if this is red</h1>
-
-    <h2>New activities</h2>
-    <ul>
+<div id="dashboard">
+  <div class="new_activity activity">
+    <h2 class="activity_heading">New</h2>
+    <hr>
     {% for activity in activities %}
       {% if activity.status == -1 %}
-      <h1>{{ activity.heading }}, status: {{ activity.status }}</h1>
-      <a href="{% url 'mindspace_app:update' pk=activity.pk %}">update</a>
-      <a href="{% url 'mindspace_app:delete' pk=activity.pk %}">delete</a>
-
+      <div class="task ">
+        <a href="{% url 'mindspace_app:update' pk=activity.pk %}">{{ activity.heading }}, status: {{ activity.status }}</a>
+      </div>
       {% endif %}
     {% endfor %}
-    </ul>
+  </div>
 
-    <h2>Current activities</h2>
-    <ul>
+
+  <div class="current_activity activity">
+    <h2 class="activity_heading">Current</h2>
+    <hr>
     {% for activity in activities %}
       {% if activity.status == 0 %}
-      <h1>{{ activity.heading }}, status: {{ activity.status }}</h1>
-      <a href="{% url 'mindspace_app:update' pk=activity.pk %}">update</a>
-      <a href="{% url 'mindspace_app:delete' pk=activity.pk %}">delete</a>
+      <div class="task">
+        <a href="{% url 'mindspace_app:update' pk=activity.pk %}">{{ activity.heading }}, status: {{ activity.status }}</a>
+      </div>
       {% endif %}
     {% endfor %}
-    </ul>
+  </div>
 
-    <h2>Completed activities</h2>
-    <ul>
+  <div class="completed_activity activity ">
+    <h2 class="activity_heading">Completed</h2>
+    <hr>
     {% for activity in activities %}
       {% if activity.status == 1 %}
-      <h1>{{ activity.heading }}, status: {{ activity.status }}</h1>
-      <a href="{% url 'mindspace_app:update' pk=activity.pk %}">update</a>
-      <a href="{% url 'mindspace_app:delete' pk=activity.pk %}">delete</a>
+      <div class="task">
+        <a href="{% url 'mindspace_app:update' pk=activity.pk %}">{{ activity.heading }}, status: {{ activity.status }}</a>
+      </div>
       {% endif %}
     {% endfor %}
-    </ul>
+  </div>
+</div>
 {% endblock %}

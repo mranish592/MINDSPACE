@@ -1,16 +1,15 @@
 :root{
   --dark-grey: #3C3C3C;
+  --medium-grey: #707070;
   --light-grey: #8D8A8A;
   --green: #00D090;
-  --pink: #00D090;
-}
-img {
-  max-width:300px;
-  height:auto;
-  padding: 10px;
+  --green-hover: #029669;
+  --pink: #FF2682;
+  --pink-hover: #8E1347;
 }
 
 body{
+  font-size: 20px;
   font-family: arial;
   background-color: var(--dark-grey);
   color: white;
@@ -18,13 +17,109 @@ body{
 
 }
 
-a{
-  color: white;
-}
-
 .navbar{
+  display: grid;
+  grid-template-columns: repeat(16,1fr);
   background: var(--light-grey);
   top: 0; /* Position the navbar at the top of the page */
   width: 100%; /* Full width */
   height: 100px;
+}
+
+.logo{
+  grid-column: 1/6;
+  align-items: center;
+}
+
+.navbar-link{
+  font-weight: bold;
+}
+
+.navbar-link:hover{
+  color: var(--dark-grey);
+
+}
+.logo img{
+  max-height: 100px;
+  padding: 0 20px 0 20px;
+}
+
+.dashboard{
+  display: inline-grid;
+  grid-column: 6/8;
+  height: 100px;
+  align-items: center;
+  align-items: center;
+  justify-items:center;
+}
+
+.new{
+  display: inline-grid;
+  grid-column: 14/16;
+  height: 50px;
+  align-items: center;
+  justify-items:center;
+  font-size: 36px;
+  color: var(--dark-grey);
+  background-color: var(--green);
+  margin: 25px;
+  border-radius: 25px;
+}
+
+.new:hover{
+  background-color: var(--green-hover);
+}
+#dashboard{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  max-width: 90%;
+  margin: 0 auto;
+
+}
+
+.activity{
+  background-color: var(--medium-grey);
+  margin: 2em 2em 0em 2em;
+  border-radius: 2.5em ;
+}
+
+.activity_heading{
+  background-color: var(--green);
+  margin: 1.1em 1.7em 0.7em 1.7em;
+  border-radius: 0.82em;
+  text-align: center;
+  font-weight: bold;
+  color: var(--dark-grey);
+}
+
+.activity_heading:hover{
+  background-color: var(--green-hover);
+  border-radius: 0.82em;
+  text-align: center;
+  color: var(--dark-grey);
+}
+
+hr{
+  color: white;
+  width: 70%;
+}
+.task {
+  background-color: var(--pink);
+  margin: 0.9em 1.7em 0.5em 1.7em;
+  border-radius: 0.82em;
+  text-align: center;
+  font-weight: lighter;
+  padding: 0.3em;
+}
+
+.task:hover {
+  background-color: var(--pink-hover);
+  margin: 0.9em 1.7em 0.5em 1.7em;
+  border-radius: 0.82em;
+  text-align: center;
+}
+
+a{
+  text-decoration: none;
+  color: white;
 }

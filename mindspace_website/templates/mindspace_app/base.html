@@ -3,20 +3,23 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">-->
     <!-- CSS CUSTOM -->
     <link rel="stylesheet" href="{% static 'css/styles.css' %}"/>
     <title></title>
   </head>
   <body>
     <div class="navbar">
-      <a href="{% url 'mindspace_app:index' %}"> MindSpace</a>
-      <a href="{% url 'mindspace_app:index' %}">Dashboard</a>
-      <a href="{% url 'mindspace_app:create' %}">New Project</a>
+      <a class='logo' href="{% url 'mindspace_app:index' %}"> <img src="{% static 'images/MindSpace_logo.png' %}" alt=""> </a>
+      <a class='navbar-link dashboard' href="{% url 'mindspace_app:index' %}">Dashboard</a>
+      <a class='navbar-link new' href="{% url 'mindspace_app:create' %}">New</a>
     </div>
+
 
     {% block body_block %}
 
     {% endblock %}
+
   </body>
 
 </html>
