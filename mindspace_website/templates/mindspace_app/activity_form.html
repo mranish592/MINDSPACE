@@ -5,16 +5,28 @@
   <h3>status 0 = 'CURRENT'</h3>
   <h3>status 1 = 'COMPLETED'</h3>
 
-  <form class="" action="" method="post">
+  <form class="form-box" action="" method="post">
     {% csrf_token %}
-    {{ form.as_p }}
-<!--
-    <label for="heading"></label>
-    <input id ="heading" type="text" name="" value="">
+    {% for field in form %}
+      <div class="field">
+        <label for="{{ field.id_for_label}}" class="{{ field.html_name }}">{{ field.html_name }}</label>
 
-    <label for="status"></label>
-    <input id = "status" type="number" name="" value="">
--->
+        {% if field.html_name == "heading" %}
+          <div class="heading_input">
+            {{ field }}
+          </div>
+        {% endif %}
+
+        {% if field.html_name == "status" %}
+          <div class="status_input">
+            {{ field }}
+          </div>
+        {% endif %}
+
+      </div>
+
+    {% endfor %}
+
     <input type="submit" name="" value="submit">
     {% if form.instance.pk %}
       <a href="{% url 'mindspace_app:delete' pk=activity.pk %}">delete</a>
