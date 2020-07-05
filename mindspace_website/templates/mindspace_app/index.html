@@ -6,9 +6,9 @@
     <h2 class="activity_heading">New</h2>
     <hr>
     {% for activity in activities %}
-      {% if activity.status == -1 %}
+      {% if activity.status == 'new' %}
       <div class="task ">
-        <a href="{% url 'mindspace_app:update' pk=activity.pk %}">{{ activity.heading }}, status: {{ activity.status }}</a>
+        <a href="{% url 'mindspace_app:update' pk=activity.pk %}">{{ activity.heading }}, {{ activity.percentage }}%</a>
       </div>
       {% endif %}
     {% endfor %}
@@ -19,9 +19,9 @@
     <h2 class="activity_heading">Current</h2>
     <hr>
     {% for activity in activities %}
-      {% if activity.status == 0 %}
+      {% if activity.status == 'current' %}
       <div class="task">
-        <a href="{% url 'mindspace_app:update' pk=activity.pk %}">{{ activity.heading }}, status: {{ activity.status }}</a>
+        <a href="{% url 'mindspace_app:update' pk=activity.pk %}">{{ activity.heading }}, {{ activity.percentage }}%</a>
       </div>
       {% endif %}
     {% endfor %}
@@ -31,9 +31,9 @@
     <h2 class="activity_heading">Completed</h2>
     <hr>
     {% for activity in activities %}
-      {% if activity.status == 1 %}
+      {% if activity.status == 'completed' %}
       <div class="task">
-        <a href="{% url 'mindspace_app:update' pk=activity.pk %}">{{ activity.heading }}, status: {{ activity.status }}</a>
+        <a href="{% url 'mindspace_app:update' pk=activity.pk %}">{{ activity.heading }}, {{ activity.percentage }}%</a>
       </div>
       {% endif %}
     {% endfor %}

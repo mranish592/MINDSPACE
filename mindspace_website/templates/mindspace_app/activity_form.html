@@ -23,6 +23,16 @@
           </div>
         {% endif %}
 
+        {% if field.html_name == "percentage" %}
+          <div class="percentage_input">
+            {{ field }}
+            <input type="range" id="percentage_slider" name="percentage" min="0" max="100" onchange="updateTextInput(this.value);">
+            <div id="percentage_indicator">
+              50
+            </div>
+          </div>
+        {% endif %}
+
       </div>
 
     {% endfor %}
@@ -32,7 +42,21 @@
       <a href="{% url 'mindspace_app:delete' pk=activity.pk %}">delete</a>
     {% endif %}
 
+    <button onclick="myFunction()" type="button" name="button">set 75</button>
   </form>
 
 
+{% endblock %}
+
+{% block script_block %}
+  <script>
+  document.getElementById("id_percentage").type = "hidden";
+  var p = document.getElementById("percentage_slider").value
+  document.getElementById("id_percentage").value = p;
+
+
+  function updateTextInput(val){
+    document.getElementById('percentage_indicator').innerHTML=val;
+  }
+  </script>
 {% endblock %}

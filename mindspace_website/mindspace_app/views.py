@@ -14,11 +14,11 @@ class IndexView(TemplateView):
         return context
 
 class ActivityCreateView(CreateView):
-    fields = ('heading','status')
+    fields = ('heading','status','percentage')
     model = Activity
 
 class ActivityUpdateView(UpdateView):
-    fields = ('heading','status')
+    fields = ('heading','status','percentage')
     model = Activity
 
 class ActivityDeleteView(DeleteView):
