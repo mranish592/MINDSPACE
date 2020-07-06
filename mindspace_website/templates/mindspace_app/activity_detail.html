@@ -1,0 +1,31 @@
+{% extends "mindspace_app/base.html" %}
+
+{% block body_block %}
+
+  <div class="activity-detail-background">
+
+
+    <div class="activity-detail-container">
+      <h1 class="heading">{{ activity_detail.heading }}</h1>
+      <hr>
+      <div class="description">
+        {{ activity_detail.description }}
+      </div>
+    </div>
+
+
+
+<!--
+    <div class="c100 p50 big green">
+        <span>50%</span>
+        <div class="slice">
+            <div class="bar"></div>
+            <div class="fill"></div>
+        </div>
+    </div>
+  </div>
+-->
+
+
+  </details>
+{% endblock %}

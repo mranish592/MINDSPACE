@@ -143,3 +143,25 @@ input{
 input:focus, textarea:focus, select:focus{
   outline: none;
 }
+.activity-detail-background{
+  display: grid;
+  grid-template-columns: repeat(16,1fr);
+}
+.activity-detail-container{
+  display: inline-grid;
+  grid-column: 3/15;
+  background-color: var(--green);
+  grid-template-columns: repeat(12,1fr);
+}
+
+.activity-detail-container .heading{
+  display: inline-grid;
+  grid-column-start: 3;
+  color: red;
+}
+
+.activity-detail-container .description{
+  display: inline-grid;
+  grid-row-start: 2;
+  
+}

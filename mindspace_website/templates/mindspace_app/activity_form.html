@@ -33,6 +33,12 @@
           </div>
         {% endif %}
 
+        {% if field.html_name == "description" %}
+          <div class="description_input">
+            {{ field }}
+          </div>
+        {% endif %}
+
       </div>
 
     {% endfor %}
@@ -42,8 +48,6 @@
       <a href="{% url 'mindspace_app:delete' pk=activity.pk %}">delete</a>
     {% endif %}
 
-    <button onclick="myFunction()" type="button" name="button">set 75</button>
-  </form>
 
 
 {% endblock %}

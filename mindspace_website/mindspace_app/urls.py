@@ -9,5 +9,6 @@ urlpatterns = [
     path('create/', views.ActivityCreateView.as_view(), name='create'),
     path('update/<pk>', views.ActivityUpdateView.as_view(), name='update'),
     path('delete/<pk>', views.ActivityDeleteView.as_view(), name='delete'),
+    path('detail/<pk>', views.ActivityDetailView.as_view(), name='detail'),
 
 ]

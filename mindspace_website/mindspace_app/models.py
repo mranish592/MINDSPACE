@@ -27,6 +27,11 @@ class Activity(models.Model):
         validators=[MaxValueValidator(100), MinValueValidator(0)]
      )
 
+    description = models.TextField(
+        default = ' ',
+        max_length=500,
+    )
+
     def __str__(self):
         return self.heading
 
