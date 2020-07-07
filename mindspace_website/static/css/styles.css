@@ -124,11 +124,7 @@ a{
   color: white;
 }
 
-.form-box{
-  background-color: var(--green);
-  width: 60%;
-  align-self: center;
-}
+
 
 input{
   border-top:0px;
@@ -144,24 +140,103 @@ input:focus, textarea:focus, select:focus{
   outline: none;
 }
 .activity-detail-background{
-  display: grid;
-  grid-template-columns: repeat(16,1fr);
+  text-align: center;
 }
 .activity-detail-container{
-  display: inline-grid;
-  grid-column: 3/15;
   background-color: var(--green);
-  grid-template-columns: repeat(12,1fr);
+  width: 60%;
+  height: 500px;
+  display: inline-block;
+  margin: 20px;
+  text-align: left;
+  border-radius: 3em;
 }
 
 .activity-detail-container .heading{
-  display: inline-grid;
-  grid-column-start: 3;
-  color: red;
+  margin-top: 1em;
+  margin-left: 3em;
+  margin-bottom: 0;
+  color: var(--dark-grey);
+}
+
+.activity-detail-container hr{
+  position: relative;
+  width: calc(100% - 10em);
+  margin-left: 5em;
+  border: 1px solid var(--dark-grey);
+  border-radius: 1px;
+
 }
 
 .activity-detail-container .description{
-  display: inline-grid;
-  grid-row-start: 2;
-  
+  background-color: var(--dark-grey);
+  margin: 1em 5em 0em 5em;
+  height: 300px;
+  border-radius: 2em;
+}
+
+.activity-detail-container .description-text{
+  padding: 2em;
+  color: white;
+}
+
+
+.buttons{
+    display: grid;
+    grid-template-columns: repeat(16,1fr);
+}
+
+.update-button{
+  grid-column: 8/10;
+  color: red;
+
+}
+
+.update-button button{
+  outline: none;
+  background-color: var(--pink);
+  height: 50px;
+  width: 100px;
+  margin: 10px;
+  border-radius: 25px;
+  font-size: 1em;
+  border: 0px;
+}
+
+.delete-button{
+  grid-column: 2/4;
+}
+
+.delete-button button{
+  outline: none;
+  background-color: transparent;
+  height: 50px;
+  margin: 10px;
+  border: 0px;
+}
+
+.percentage-circle{
+  grid-column: 15/17;
+}
+
+.delete-button a img{
+  max-height: 40px;
+}
+
+.form-background{
+  text-align: center;
+}
+.form-container{
+  background-color: var(--green);
+  width: 60%;
+  height: 500px;
+  display: inline-block;
+  margin: 20px;
+  border-radius: 3em;
+}
+
+.form-box{
+  background-color: var(--green);
+
+
 }

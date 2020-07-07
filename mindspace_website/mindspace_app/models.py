@@ -35,5 +35,8 @@ class Activity(models.Model):
     def __str__(self):
         return self.heading
 
+    def css_percentage(self):
+        return str('p'+str(self.percentage))
+        
     def get_absolute_url(self):
         return reverse("mindspace_app:index")

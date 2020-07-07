@@ -1,5 +1,6 @@
+<!DOCTYPE html>
 {% extends "mindspace_app/base.html" %}
-
+{% load static %}
 {% block body_block %}
 
   <div class="activity-detail-background">
@@ -9,22 +10,45 @@
       <h1 class="heading">{{ activity_detail.heading }}</h1>
       <hr>
       <div class="description">
-        {{ activity_detail.description }}
+        <div class="description-text">
+          {{ activity_detail.description }}
+        </div>
+      </div>
+      <div class="buttons">
+
+        <div class="delete-button">
+          <button type="button" name="delete">
+            <a href="{% url 'mindspace_app:delete' pk=activity_detail.pk %}">
+              <img src="{% static 'images/delete-logo-2.png' %}" alt="">
+            </a>
+          </button>
+        </div>
+
+        <div class="update-button">
+          <button type="button" name="update">
+            <a href="{% url 'mindspace_app:update' pk=activity_detail.pk %}">update</a>
+          </button>
+        </div>
+
+
+
+        <div class="c100 {{ activity_detail.css_percentage }} medium percentage-circle">
+            <span>{{ activity_detail.percentage }}%</span>
+            <div class="slice">
+                <div class="bar"></div>
+                <div class="fill"></div>
+            </div>
+        </div>
+
       </div>
     </div>
 
 
 
-<!--
-    <div class="c100 p50 big green">
-        <span>50%</span>
-        <div class="slice">
-            <div class="bar"></div>
-            <div class="fill"></div>
-        </div>
-    </div>
+
+
   </div>
--->
+
 
 
   </details>

@@ -1,59 +1,60 @@
 {% extends "mindspace_app/base.html" %}
 {% block body_block %}
-  <h1>Enter heading and status</h1>
-  <h3>status -1 = 'NEW'</h3>
-  <h3>status 0 = 'CURRENT'</h3>
-  <h3>status 1 = 'COMPLETED'</h3>
+<div class="form-background">
+  <div class="form-container">
 
-  <form class="form-box" action="" method="post">
-    {% csrf_token %}
-    {% for field in form %}
-      <div class="field">
-        <label for="{{ field.id_for_label}}" class="{{ field.html_name }}">{{ field.html_name }}</label>
+    <form class="form-box" action="" method="post">
+      {% csrf_token %}
+      {% for field in form %}
+        <div class="field">
+          <label for="{{ field.id_for_label}}" class="{{ field.html_name }}">{{ field.html_name }}</label>
 
-        {% if field.html_name == "heading" %}
-          <div class="heading_input">
-            {{ field }}
-          </div>
-        {% endif %}
-
-        {% if field.html_name == "status" %}
-          <div class="status_input">
-            {{ field }}
-          </div>
-        {% endif %}
-
-        {% if field.html_name == "percentage" %}
-          <div class="percentage_input">
-            {{ field }}
-            <input type="range" id="percentage_slider" name="percentage" min="0" max="100" onchange="updateTextInput(this.value);">
-            <div id="percentage_indicator">
-              50
+          {% if field.html_name == "heading" %}
+            <div class="heading_input">
+              {{ field }}
             </div>
-          </div>
-        {% endif %}
+          {% endif %}
 
-        {% if field.html_name == "description" %}
-          <div class="description_input">
-            {{ field }}
-          </div>
-        {% endif %}
+          {% if field.html_name == "status" %}
+            <div class="status_input">
+              {{ field }}
+            </div>
+          {% endif %}
 
-      </div>
+          {% if field.html_name == "percentage" %}
+            <div class="percentage_input">
+              {{ field }}
+              <input type="range" id="percentage_slider" name="percentage" min="0" max="100" onchange="updateTextInput(this.value);">
+              <div id="percentage_indicator">
+                {{ activity.percentage }}
+              </div>
+            </div>
+          {% endif %}
 
-    {% endfor %}
+          {% if field.html_name == "description" %}
+            <div class="description_input">
+              {{ field }}
+            </div>
+          {% endif %}
 
-    <input type="submit" name="" value="submit">
-    {% if form.instance.pk %}
-      <a href="{% url 'mindspace_app:delete' pk=activity.pk %}">delete</a>
-    {% endif %}
+        </div>
 
+      {% endfor %}
 
+      <input type="submit" name="" value="submit">
+    </form>
 
+      {% if form.instance.pk %}
+        <a href="{% url 'mindspace_app:delete' pk=activity.pk %}">delete</a>
+      {% endif %}
+
+  </div>
+</div>
 {% endblock %}
 
 {% block script_block %}
   <script>
+  document.getElementById("percentage_slider").value= {{ activity.percentage }}
   document.getElementById("id_percentage").type = "hidden";
   var p = document.getElementById("percentage_slider").value
   document.getElementById("id_percentage").value = p;

@@ -61,7 +61,11 @@
   font-size: 240px;
 }
 .c100.small {
-  font-size: 30px;
+  font-size: 25px;
+}
+
+.c100.medium{
+  font-size: 60px;
 }
 .c100 > span {
   position: absolute;
@@ -839,6 +843,10 @@
 }
 .c100.dark {
   background-color: #777777;
+}
+
+.c100.transparent{
+  background-color: #00D090;
 }
 .c100.dark .bar,
 .c100.dark .fill {
